@@ -22,8 +22,8 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
-    @Autowired
-    private BookRepository bookRepository;
+/*    @Autowired
+    private BookRepository bookRepository;*/
 
     @GetMapping("/getBook/{id}")
     public ResponseEntity<Book> getBook(@PathVariable Integer id) {
@@ -46,7 +46,7 @@ public class BookController {
     }
 
     @PostMapping("/create/book")
-    public ResponseEntity<?> createBook(Book book) {
+    public ResponseEntity<?> createBook(@RequestBody Book book) {
         return new ResponseEntity<>(bookService.saveBook(book), HttpStatus.OK);
     }
 
